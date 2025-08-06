@@ -1,17 +1,18 @@
 package Generics;
 
 import java.util.Arrays;
-
-public class CustomArrayList {
-    private int[] data;
-    private static int DEFAULT_SIZE = 10;
+//public class CustomArrayList<? extends Number> This is called java wildClass
+//public class CustomArrayList<T extends Number> Here we can only use classes that are subClass of Number
+public class CustomArrayList<T> {
+    private Object[] data;
     private int size = 0;
 
     public CustomArrayList(){
-        this.data = new int[DEFAULT_SIZE];
+        int DEFAULT_SIZE = 10;
+        this.data = new Object[DEFAULT_SIZE];
     }
 
-    public void add(int num){
+    public void add(T num){
         if(isFull()){
             resize();
         }
@@ -26,8 +27,8 @@ public class CustomArrayList {
         return size;
     }
 
-    public int get(int index){
-        return data[index];
+    public Object get(int index){
+        return (Object)(data[index]);
     }
 
     private boolean isFull(){
@@ -35,9 +36,9 @@ public class CustomArrayList {
     }
 
     private void resize(){
-        int[] temp = new int[data.length * 2];
+        Object[] temp = new Object[data.length * 2];
         for (int i = 0; i < data.length; i++) {
-            temp[i] = data[i];
+            temp[i] = (data[i]);
             data = temp;
         }
     }
@@ -47,12 +48,17 @@ public class CustomArrayList {
     }
 
     public static void main(String[] args) {
-        CustomArrayList list = new CustomArrayList();
-        list.add(3);
-        list.add(9);
-        list.add(10);
+        CustomArrayList<Integer> list = new CustomArrayList<>();
+        list.add(Integer.valueOf(3));
+        list.add(Integer.valueOf(9));
+        list.add(Integer.valueOf(10));
+
+        CustomArrayList<String> list2 = new CustomArrayList<>();
+        list2.add("Anshu");
+        list2.add("Manash");
 
         System.out.println(list);
         System.out.println(list.size());
+        System.out.println(list2);
     }
 }
