@@ -1,5 +1,7 @@
 package LinkedList.doublyLL;
 
+import LinkedList.singlyLL.LL;
+
 public class DLL {
 
     private Node head;
@@ -11,6 +13,33 @@ public class DLL {
             head.prev = node;
         }
         head = node;
+    }
+
+    public void insert(int after, int val){
+        Node p = find(after);
+        if(p == null){
+            System.out.println("Node does not exist");
+            return;
+        }
+
+        Node node = new Node(val);
+        node.next = p.next;
+        node.prev = p;
+        p.next = node;
+        if(node.next != null){
+        node.next.prev = node;
+        }
+    }
+
+    public Node find(int value){
+        Node node = head;
+        while(node != null){
+            if(node.value == value){
+                return node;
+            }
+            node = node.next;
+        }
+        return null;
     }
 
     public void display(){
