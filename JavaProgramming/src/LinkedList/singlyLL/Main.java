@@ -17,7 +17,10 @@ public class Main {
         System.out.println(list.delete(2));
         list.display();
         System.out.println(list.find(78));
-        list.insertRec(38, 2);
+        list.insertRec(38, 3);
         list.display();
+        list.insertRec(44, 2);
+        list.display();
+        list.get(3);
     }
 }

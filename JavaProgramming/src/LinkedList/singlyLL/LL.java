@@ -55,8 +55,7 @@ public class LL {
         for (int i = 1; i < index; i++) {
             temp = temp.next;
         }
-        Node node = new Node(val, temp.next);
-        temp.next = node;
+        temp.next = new Node(val, temp.next);
         size++;
     }
 
@@ -120,12 +119,12 @@ public class LL {
 
     private Node insertRec(int val, int index, Node node){
         if(index == 0){
-            Node temp = new Node(val, node);
+            Node temp = new Node(val, node); //here we are creating a new node "temp" and assigning the current node in its next
             size++;
             return temp;
         }
 
-        node.next = insertRec(val, index--, node.next);
+        node.next = insertRec(val, index-1, node.next);
         return node;
     }
 
