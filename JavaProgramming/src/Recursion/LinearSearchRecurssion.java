@@ -1,3 +1,4 @@
+package Recursion;
 public class LinearSearchRecurssion {
     public static void main(String[] args) {
         int[] arr = { 2, 3, 1, 89, 31, 90, 3 };
