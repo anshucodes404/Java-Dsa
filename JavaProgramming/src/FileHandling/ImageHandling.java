@@ -8,9 +8,9 @@ import java.io.IOException;
 public class ImageHandling {
     public static void main(String[] args) throws IOException {
 
-        String readPathURL = "D:\\DSA\\JavaProgramming\\bird.jpg";
+        String readPathURL = "/home/anshu/Codes/DSA/JavaProgramming/bird.jpg";
 //        String writePathURL = "D:\\DSA\\JavaProgramming\\src\\FileHandling\\birdCopied.jpg";
-        String writePathURL = "D:\\bi.jpg";
+        String writePathURL = "/home/anshu/birdCopied.jpg";
 
         BufferedImage image = null;
         image = readFromPath(image, readPathURL);
